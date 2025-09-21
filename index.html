@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Exercise: Autofill Phishing Demo</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <meta name="app-name" content="Update the app name.">
+    <meta name="short-name" content="Update the short name.">
+    <meta name="description" content="Update the description.">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Standard Favicons (for browsers) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="imagesimages/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+
+    <!-- Apple Touch Icons (for iOS/Safari) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180x180.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/favicon-152x152.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/favicon-144x144.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/favicon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/favicon-76x76.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/favicon-72x72.png">
+
+    <!-- Android Chrome (via manifest.json) -->
+    <!-- These sizes should be in your manifest.json, not here -->
+
+
+    <!-- Windows Tiles -->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="images/favicon-144x144.png">
+</head>
+<body>
+    <div class="matrix-bg"></div>
+    
+    <div class="header">
+        <h1>CYBERSECURITY EXERCISE</h1>
+        <p>Browser Autofill Vulnerability Demonstration</p>
+    </div>
+
+    <div class="container">
+        <div class="left-panel">
+            <h2 class="panel-title">User Input Terminal</h2>
+            
+            <div class="instructions">
+                <h3>Mission Protocol:</h3>
+                <ol>
+                    <li>Enter your name in the terminal below</li>
+                    <li>Activate browser autofill/autocomplete systems</li>
+                    <li>Monitor data breach visualization on right panel</li>
+                    <li>Observe how stealth fields capture personal intel</li>
+                </ol>
+            </div>
+
+            <form id="phishingForm">
+                <div class="form-group">
+                    <label for="name">System User Identity:</label>
+                    <input type="text" id="name" name="name" autocomplete="name" placeholder="Enter your full name">
+                </div>
+
+                <!-- Hidden fields that browsers may autofill -->
+                <div class="hidden-fields">
+                    <input type="email" id="email" name="email" autocomplete="email">
+                    <input type="tel" id="phone" name="phone" autocomplete="tel">
+                    <input type="text" id="organization" name="organization" autocomplete="organization">
+                    <input type="text" id="address-line1" name="address-line1" autocomplete="address-line1">
+                    <input type="text" id="address-line2" name="address-line2" autocomplete="address-line2">
+                    <input type="text" id="city" name="city" autocomplete="address-level2">
+                    <input type="text" id="state" name="state" autocomplete="address-level1">
+                    <input type="text" id="postal-code" name="postal-code" autocomplete="postal-code">
+                    <input type="text" id="country" name="country" autocomplete="country">
+                    <input type="text" id="cc-name" name="cc-name" autocomplete="cc-name">
+                    <input type="text" id="cc-number" name="cc-number" autocomplete="cc-number">
+                    <input type="text" id="cc-exp" name="cc-exp" autocomplete="cc-exp">
+                </div>
+            </form>
+
+            <div class="warning">
+                <h3>Security Alert</h3>
+                <p>This demonstration reveals how malicious sites exploit browser autofill to harvest personal data without user awareness. Hidden form fields automatically populate when autofill is engaged, exposing sensitive information.</p>
+            </div>
+
+            <button class="reset-btn" onclick="resetForm()">Purge Data</button>
+        </div>
+
+        <div class="right-panel">
+            <h2 class="panel-title">Data Interception Monitor</h2>
+            
+            <div id="capturedData">
+                <div class="display-field">
+                    <div class="field-label">Email Protocol</div>
+                    <div class="field-value" id="display-email">AWAITING DATA STREAM...</div>
+                </div>
+                
+                <div class="display-field">
+                    <div class="field-label">Communication Vector</div>
+                    <div class="field-value" id="display-phone">AWAITING DATA STREAM...</div>
+                </div>
+                
+                <div class="display-field">
+                    <div class="field-label">Corporate Entity</div>
+                    <div class="field-value" id="display-organization">AWAITING DATA STREAM...</div>
+                </div>
+                
+                <div class="display-field">
+                    <div class="field-label">Physical Location</div>
+                    <div class="field-value" id="display-address">AWAITING DATA STREAM...</div>
+                </div>
+                
+                <div class="display-field">
+                    <div class="field-label">Urban Center</div>
+                    <div class="field-value" id="display-city">AWAITING DATA STREAM...</div>
+                </div>
+                
+                <div class="display-field">
+                    <div class="field-label">Regional Zone</div>
+                    <div class="field-value" id="display-state">AWAITING DATA STREAM...</div>
+                </div>
+                
+                <div class="display-field">
+                    <div class="field-label">Postal Sector</div>
+                    <div class="field-value" id="display-postal-code">AWAITING DATA STREAM...</div>
+                </div>
+                
+                <div class="display-field">
+                    <div class="field-label">Nation State</div>
+                    <div class="field-value" id="display-country">AWAITING DATA STREAM...</div>
+                </div>
+                
+                <div class="display-field">
+                    <div class="field-label">Financial Identity</div>
+                    <div class="field-value" id="display-cc-name">AWAITING DATA STREAM...</div>
+                </div>
+                
+                <div class="display-field">
+                    <div class="field-label">Payment Matrix</div>
+                    <div class="field-value" id="display-cc-number">AWAITING DATA STREAM...</div>
+                </div>
+                
+                <div class="display-field">
+                    <div class="field-label">Expiration Protocol</div>
+                    <div class="field-value" id="display-cc-exp">AWAITING DATA STREAM...</div>
+                </div>
+            </div>
+
+            <div class="warning">
+                <h3>Defense Protocols</h3>
+                <ul>
+                    <li>Exercise extreme caution with autofill on unknown networks</li>
+                    <li>Audit information before autofill deployment</li>
+                    <li>Disable autofill for classified data types</li>
+                    <li>Verify site authenticity and security certificates</li>
+                    <li>Use secure password managers with selective fill</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
