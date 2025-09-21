@@ -11,7 +11,7 @@
     <meta name="description" content="Update the description.">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="/manifest">
 
     <!-- Standard Favicons (for browsers) -->
     <link rel="icon" type="image/png" sizes="32x32" href="imagesimages/favicon-32x32.png">
@@ -48,42 +48,43 @@
             <div class="instructions">
                 <h3>Mission Protocol:</h3>
                 <ol>
-                    <li>Enter your name in the terminal below</li>
-                    <li>Activate browser autofill/autocomplete systems</li>
-                    <li>Monitor data breach visualization on right panel</li>
-                    <li>Observe how stealth fields capture personal intel</li>
+                    <li>Start typing your name below</li>
+                    <li>When Chrome shows autofill suggestions, CLICK on your profile</li>
+                    <li>Or try the "Trigger Autofill" button after typing</li>
+                    <li>Watch hidden data appear on the right panel</li>
                 </ol>
             </div>
 
-            <form id="phishingForm">
+            <form id="phishingForm" autocomplete="on">
                 <div class="form-group">
                     <label for="name">System User Identity:</label>
-                    <input type="text" id="name" name="name" autocomplete="name" placeholder="Enter your full name">
+                    <input type="text" id="name" name="name" autocomplete="name" placeholder="Start typing your name..." required>
                 </div>
 
-                <!-- Hidden fields that browsers may autofill -->
+                <!-- CRITICAL: Hidden fields positioned off-screen but still accessible to browsers -->
                 <div class="hidden-fields">
-                    <input type="email" id="email" name="email" autocomplete="email">
-                    <input type="tel" id="phone" name="phone" autocomplete="tel">
-                    <input type="text" id="organization" name="organization" autocomplete="organization">
-                    <input type="text" id="address-line1" name="address-line1" autocomplete="address-line1">
-                    <input type="text" id="address-line2" name="address-line2" autocomplete="address-line2">
-                    <input type="text" id="city" name="city" autocomplete="address-level2">
-                    <input type="text" id="state" name="state" autocomplete="address-level1">
-                    <input type="text" id="postal-code" name="postal-code" autocomplete="postal-code">
-                    <input type="text" id="country" name="country" autocomplete="country">
-                    <input type="text" id="cc-name" name="cc-name" autocomplete="cc-name">
-                    <input type="text" id="cc-number" name="cc-number" autocomplete="cc-number">
-                    <input type="text" id="cc-exp" name="cc-exp" autocomplete="cc-exp">
+                    <input type="email" id="email" name="email" autocomplete="email" tabindex="-1">
+                    <input type="tel" id="phone" name="phone" autocomplete="tel" tabindex="-1">
+                    <input type="text" id="organization" name="organization" autocomplete="organization" tabindex="-1">
+                    <input type="text" id="address-line1" name="address-line1" autocomplete="address-line1" tabindex="-1">
+                    <input type="text" id="address-line2" name="address-line2" autocomplete="address-line2" tabindex="-1">
+                    <input type="text" id="city" name="city" autocomplete="address-level2" tabindex="-1">
+                    <input type="text" id="state" name="state" autocomplete="address-level1" tabindex="-1">
+                    <input type="text" id="postal-code" name="postal-code" autocomplete="postal-code" tabindex="-1">
+                    <input type="text" id="country" name="country" autocomplete="country" tabindex="-1">
+                    <input type="text" id="cc-name" name="cc-name" autocomplete="cc-name" tabindex="-1">
+                    <input type="text" id="cc-number" name="cc-number" autocomplete="cc-number" tabindex="-1">
+                    <input type="text" id="cc-exp" name="cc-exp" autocomplete="cc-exp" tabindex="-1">
                 </div>
             </form>
 
             <div class="warning">
                 <h3>Security Alert</h3>
-                <p>This demonstration reveals how malicious sites exploit browser autofill to harvest personal data without user awareness. Hidden form fields automatically populate when autofill is engaged, exposing sensitive information.</p>
+                <p>This demonstrates how malicious sites can exploit browser autofill to harvest personal data. Hidden fields get populated when you select an autofill suggestion, even though you only see one input field.</p>
             </div>
 
             <button class="reset-btn" onclick="resetForm()">Purge Data</button>
+            <button class="trigger-btn" onclick="triggerAutofill()">Trigger Autofill</button>
         </div>
 
         <div class="right-panel">
@@ -149,11 +150,11 @@
             <div class="warning">
                 <h3>Defense Protocols</h3>
                 <ul>
-                    <li>Exercise extreme caution with autofill on unknown networks</li>
-                    <li>Audit information before autofill deployment</li>
-                    <li>Disable autofill for classified data types</li>
-                    <li>Verify site authenticity and security certificates</li>
-                    <li>Use secure password managers with selective fill</li>
+                    <li>Be suspicious of any form asking only for basic info</li>
+                    <li>Check developer tools to see hidden form fields</li>
+                    <li>Disable autofill for sensitive websites</li>
+                    <li>Use password managers with selective autofill</li>
+                    <li>Always verify site authenticity before entering data</li>
                 </ul>
             </div>
         </div>
